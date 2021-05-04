@@ -9,5 +9,4 @@ RUN apt-get install python3-pip
 RUN git clone https://github.com/sangcholi/Text_summarization.git
 WORKDIR /Text_summarization
 
-# 왜안되지
 RUN pip install -r requirements.txt
