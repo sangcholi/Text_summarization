@@ -6,8 +6,8 @@ RUN apt-get install git
 # Y
 RUN apt-get install python3-pip
 # Y
-RUN git clone https://github.com/sangcholi/Text_summarization.git
+RUN git clone -b feat/dockerfile https://github.com/sangcholi/Text_summarization.git
 
 WORKDIR /Text_summarization
-RUN pip install -r requirements.txt
+RUN pip3 install -r requirements.txt
 RUN python3 summarizaion.py
