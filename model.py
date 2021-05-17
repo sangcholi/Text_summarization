@@ -26,9 +26,11 @@ class ModelHandler:
         for o in model_output:
             predicted_result.append(stokenizer.decode(o, skip_special_tokens = True,
                                                     clean_up_tokenization_spaces = False))
+        
         return predicted_results
 
     def handle(self, data):
         model_input = self.preprocess(data)
         model_output = self.inference(model_input)
+        
         return self.postprocess(model_output)
