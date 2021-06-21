@@ -4,7 +4,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
 git \
 python3-pip
 
-RUN git clone -b feat/dockerfile https://github.com/sangcholi/Text_summarization.git
+RUN git clone https://github.com/sangcholi/Text_summarization.git
 
 WORKDIR /Text_summarization
 RUN pip3 install -r requirements.txt
