@@ -15,7 +15,7 @@ class ModelHandler:
 
         return model_input
 
-    def inference(self, model_input):
+    def process(self, model_input):
         model_output = self.model.generate(model_input['input_ids'], num_beams = 3,
                                     max_length = 100, early_stopping = True)
 
@@ -29,15 +29,8 @@ class ModelHandler:
 
         return predicted_results
 
-    def handle(self, data):
+    def inference(self, data):
         model_input = self.preprocess(data)
-        model_output = self.inference(model_input)
+        model_output = self.process(model_input)
         
         return self.postprocess(model_output)
-
-if __name__ == "__main__":
-    # text = sys.argv[0]
-    text = "Welcome to Flask’s documentation. Get started with Installation and then get an overview with the Quickstart. There is also a more detailed Tutorial that shows how to create a small but complete application with Flask. Common patterns are described in the Patterns for Flask section. The rest of the docs describe each component of Flask in detail, with a full reference in the API section."
-    model = ModelHandler()
-    output = model.handle(text)
-    print(output)

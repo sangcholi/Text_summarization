@@ -9,10 +9,12 @@ model = ModelHandler()
 def home():
     request_data = request.get_json()
     text = request_data['text']
-    result = model.handle(text)
+    result = model.inference(text)
     return jsonify({"result":result})
 
+@app.route("/health.json")
+def health():
+    return jsonify({"status": "UP"}), 200
 
-    
 if __name__ == '__main__':
     app.run(debug=True)
