@@ -9,4 +9,4 @@ WORKDIR /Text_summarization
 RUN pip3 install -r requirements.txt
 
 ENTRYPOINT [ "flask" ]
-CMD [ "run" ]
+CMD [ "run --host=0.0.0.0" ]
