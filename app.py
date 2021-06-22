@@ -6,7 +6,7 @@ app = Flask(__name__)
 device='cuda' if torch.cuda.is_available() else 'cpu' 
 
 model = ModelHandler()
-model = model.model.to(device)
+sub_model = model.model.to(device)
 
 
 @app.route('/', methods=['POST'])
