@@ -8,5 +8,5 @@ RUN git clone https://github.com/sangcholi/Text_summarization.git
 WORKDIR /Text_summarization
 RUN pip3 install -r requirements.txt
 
-ENTRYPOINT [ "python3" ]
-CMD [ "./app.py" ]
+ENTRYPOINT [ "flask" ]
+CMD [ "run" ]
