@@ -8,10 +8,12 @@ device='cuda' if torch.cuda.is_available() else 'cpu'
 model = ModelHandler()
 model = model.model.to(device)
 
+
 @app.route('/', methods=['POST'])
 def home():
     request_data = request.get_json()
-    text = request_data['text'].to(device)
+    text = request_data['text']
+    text = text.to(device)
     result = model.inference(text)
     return jsonify({"result":result})
 
