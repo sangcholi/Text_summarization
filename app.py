@@ -14,7 +14,7 @@ def home():
     request_data = request.get_json()
     text = request_data['text']
     result = model.inference(text)
-    return jsonify({"result":result})
+    return jsonify({"output":result[0]})
 
 @app.route("/health.json")
 def health():
