@@ -13,7 +13,6 @@ model = model.model.to(device)
 def home():
     request_data = request.get_json()
     text = request_data['text']
-    text = text.to(device)
     result = model.inference(text)
     return jsonify({"result":result})
 

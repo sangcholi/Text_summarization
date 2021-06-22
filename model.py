@@ -2,7 +2,8 @@ import sys
 from transformers import BartTokenizer
 from transformers import BartForConditionalGeneration
 from transformers import BartConfig
-        
+import torch
+device='cuda' if torch.cuda.is_available() else 'cpu' 
 
 class ModelHandler:
     def __init__(self):
@@ -16,7 +17,8 @@ class ModelHandler:
         return model_input
 
     def process(self, model_input):
-        model_output = self.model.generate(model_input['input_ids'], num_beams = 3,
+        input_ids = model_input['input_ids'].to(device)
+        model_output = self.model.generate(input_ids, num_beams = 3,
                                     max_length = 100, early_stopping = True)
 
         return model_output
