@@ -7,4 +7,6 @@ RUN git clone https://github.com/sangcholi/Text_summarization.git
 
 WORKDIR /Text_summarization
 RUN pip3 install -r requirements.txt
-RUN flask run
+
+ENTRYPOINT [ "python3" ]
+CMD [ "./app.py" ]
